@@ -107,10 +107,31 @@ async function deleteUser(id) {
   return true;
 }
 
+/**
+ * Check email
+ * @param {string} email - Email 
+ * @returns {boolean}
+ */
+async function checkUserEmail(email) {
+  const check = await usersRepository.getUsers();
+  if (!check) {
+    return null;
+  }
+
+  try {
+    await usersRepository.checkUserEmail(email);
+  } catch (err) {
+    return null;
+  }
+
+  return true;
+}
+
 module.exports = {
   getUsers,
   getUser,
   createUser,
   updateUser,
   deleteUser,
+  checkUserEmail
 };
