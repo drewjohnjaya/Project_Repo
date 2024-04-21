@@ -21,7 +21,8 @@ async function getArticle(user_id) {
  * Create new article
  * @param {string} title - Title
  * @param {string} content - Content
- * @param {string} date_created - Date Created
+ * @param {Date} date_created - Date Created
+ * @param {string} user_id - User ID
  * @returns {Promise}
  */
 async function createArticle(title, content, date_created) {
